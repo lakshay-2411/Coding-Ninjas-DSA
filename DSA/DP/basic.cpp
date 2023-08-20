@@ -4,7 +4,10 @@
 #include <climits>
 using namespace std;
 
+//--------------------------------NUM_BALANCED_BINARY_TREES---------------------------------------//
 
+
+//Method 3--------------DYNAMIC PROGRAMMING(Bottom Up Approach)---------------Time Complexity : O(N)
 int numBT_3(int h){
     long long *dp = new long long[h+1];
     dp[0] = dp[1] = 1;
@@ -19,6 +22,7 @@ int numBT_3(int h){
     return (int)dp[h];
 }
 
+//Method 2-----------------MEMOIZATION(Top to Bottom Approach)--------------Time Complexity : O(N)
 int numBT_1helper(int h,vector<int> ans){
     if(h <= 1){
         return 1;
@@ -42,6 +46,7 @@ int numBT_1(int h){
     return numBT_1helper(h,ans);
 }
 
+//Method 1--------------------BRUTE_FORCE_APPROACH-------------------------Time Complexity : O(2^n)
 long long int numBT(int h){
     if(h <= 1){
         return 1;
@@ -59,6 +64,10 @@ long long int numBT(int h){
     return ans;
 }
 
+//--------------------------------------MIN_COUNT-------------------------------------------------//
+
+
+//Method 3--------------DYNAMIC PROGRAMMING(Bottom Up Approach)---------------Time Complexity : O(N)
 int minCount_3(int n){
     vector<int> dp(n+1,INT_MAX);
 
@@ -74,7 +83,7 @@ int minCount_3(int n){
     return dp[n];
 }
 
-
+//Method 2-----------------MEMOIZATION(Top to Bottom Approach)--------------Time Complexity : O(N)
 int minCount_2helper(int n,int *ans){
     if(n == 0){
         return 0;
@@ -98,6 +107,7 @@ int minCount_2(int n){
     return minCount_2helper(n,ans);
 }
 
+//Method 1--------------------BRUTE_FORCE_APPROACH-------------------------Time Complexity : O(2^n)
 int minCount(int n){
     if(n <= 3){
         return n;
